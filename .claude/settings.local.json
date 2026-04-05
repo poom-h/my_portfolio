@@ -1,7 +1,22 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)"
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(where npm:*)",
+      "Bash(where node:*)",
+      "Bash(npm install:*)",
+      "Bash(node -e \"const l = require\\(''D:/CODE/myportfolio/node_modules/lucide-react''\\); const keys = Object.keys\\(l\\).filter\\(k => k.toLowerCase\\(\\).includes\\(''git''\\) || k.toLowerCase\\(\\).includes\\(''link''\\)\\); console.log\\(keys.join\\(''\\\\n''\\)\\)\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/dashboard)",
+      "Bash(cmd /c \"curl -v http://localhost:3000/dashboard 2>&1 | head -20\")",
+      "Bash(node -e \"const http = require\\(''http''\\); const req = http.get\\(''http://localhost:3000/dashboard'', \\(res\\) => { console.log\\(''Status:'', res.statusCode\\); console.log\\(''Location:'', res.headers.location\\); }\\); req.on\\(''error'', e => console.error\\(e.message\\)\\);\")",
+      "Bash(node -e \":*)",
+      "Bash(node -e \"const d=require\\(''''fs''''\\).readFileSync\\(''''/dev/stdin'''',''''utf8''''\\); const p=JSON.parse\\(d\\); console.log\\(''''main:'''', p.main\\); console.log\\(''''module:'''', p.module\\); console.log\\(''''exports keys:'''', Object.keys\\(p.exports||{}\\).slice\\(0,3\\)\\);\")",
+      "Bash(npx tsc:*)",
+      "Bash(Remove-Item -Recurse -Force \"D:\\\\CODE\\\\myportfolio\\\\.next\" -ErrorAction SilentlyContinue)",
+      "Bash(Write-Output \"Cleared\")",
+      "Bash(xxd \"D:/CODE/myportfolio/public/avatar.jpg\")",
+      "WebFetch(domain:console.groq.com)"
     ]
   }
 }
