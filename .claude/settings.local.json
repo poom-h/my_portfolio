@@ -16,7 +16,9 @@
       "Bash(Remove-Item -Recurse -Force \"D:\\\\CODE\\\\myportfolio\\\\.next\" -ErrorAction SilentlyContinue)",
       "Bash(Write-Output \"Cleared\")",
       "Bash(xxd \"D:/CODE/myportfolio/public/avatar.jpg\")",
-      "WebFetch(domain:console.groq.com)"
+      "WebFetch(domain:console.groq.com)",
+      "Bash(\"D:/CODE/myportfolio/supabase/schema.sql\":*)",
+      "Bash(curl -s -X POST http://localhost:3000/api/track -H \"Content-Type: application/json\" -d '{\"\"path\"\":\"\"/\"\",\"\"referrer\"\":null,\"\"session_id\"\":\"\"test-session-abc\"\",\"\"device\"\":\"\"desktop\"\"}')"
     ]
   }
 }

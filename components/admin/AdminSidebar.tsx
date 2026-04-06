@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard, Cpu, Briefcase, FolderKanban,
-  GraduationCap, User, ExternalLink, ChevronRight
+  GraduationCap, User, ExternalLink, ChevronRight, BarChart2
 } from 'lucide-react'
 
 const NAV = [
@@ -14,6 +14,7 @@ const NAV = [
   { label: 'Experience', href: '/dashboard/experience', icon: Briefcase },
   { label: 'Projects',   href: '/dashboard/projects',   icon: FolderKanban },
   { label: 'Education',  href: '/dashboard/education',  icon: GraduationCap },
+  { label: 'Analytics',  href: '/dashboard/analytics',  icon: BarChart2 },
 ]
 
 export default function AdminSidebar() {

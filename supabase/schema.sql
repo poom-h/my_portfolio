@@ -190,3 +190,19 @@ insert into education (degree, major, institution, location, start_year, end_yea
 insert into certificates (name, issuer) values
   ('AWS Certified Machine Learning Engineer – Associate', 'Amazon Web Services'),
   ('Databricks Certified Generative AI Engineer Associate', 'Databricks');
+
+-- ── Visitor tracking ─────────────────────────────────────────────────────────
+create table if not exists page_views (
+  id          uuid primary key default gen_random_uuid(),
+  created_at  timestamptz not null default now(),
+  path        text not null,
+  referrer    text,
+  device      text,          -- 'mobile' | 'tablet' | 'desktop'
+  session_id  text not null  -- random ID stored in sessionStorage (unique per tab session)
+);
+
+alter table page_views enable row level security;
+
+-- Anyone can insert (tracking), only service role can read
+create policy "public can insert page_views"
+  on page_views for insert to anon with check (true);
