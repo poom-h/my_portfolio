@@ -46,3 +46,16 @@ export async function deleteSkill(id: string) {
   revalidatePath('/')
   revalidatePath('/dashboard/skills')
 }
+
+export async function renameCategory(oldName: string, newName: string) {
+  const trimmed = newName.trim()
+  if (!trimmed || trimmed === oldName) return
+  const supabase = createAdminClient()
+  const { error } = await supabase
+    .from('skills')
+    .update({ category: trimmed })
+    .eq('category', oldName)
+  if (error) throw error
+  revalidatePath('/')
+  revalidatePath('/dashboard/skills')
+}
