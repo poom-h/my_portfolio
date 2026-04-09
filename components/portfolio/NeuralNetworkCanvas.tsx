@@ -85,11 +85,24 @@ export default function NeuralNetworkCanvas({
     cleanup()
 
     const mount = mountRef.current
-    const W = mount.clientWidth
-    const H = mount.clientHeight
+    const W = mount.clientWidth || window.innerWidth
+    const H = mount.clientHeight || window.innerHeight
 
-    // Renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+    // Silence Three.js's own console warnings during context creation
+    const _warn = console.warn
+    const _error = console.error
+    console.warn = () => {}
+    console.error = () => {}
+    let renderer: THREE.WebGLRenderer
+    try {
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+    } catch {
+      console.warn = _warn
+      console.error = _error
+      return
+    }
+    console.warn = _warn
+    console.error = _error
     renderer.setSize(W, H)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.setClearColor(0x000000, 0)

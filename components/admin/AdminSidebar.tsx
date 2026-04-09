@@ -1,10 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import {
   LayoutDashboard, Cpu, Briefcase, FolderKanban,
-  GraduationCap, User, ExternalLink, ChevronRight, BarChart2
+  GraduationCap, User, ExternalLink, ChevronRight, BarChart2, LogOut
 } from 'lucide-react'
 
 const NAV = [
@@ -19,6 +19,12 @@ const NAV = [
 
 export default function AdminSidebar() {
   const pathname = usePathname()
+  const router = useRouter()
+
+  async function handleLogout() {
+    await fetch('/api/admin/auth', { method: 'DELETE' })
+    router.push('/admin')
+  }
 
   return (
     <aside className="flex h-screen w-60 flex-col border-r border-[#1e2035] bg-[#0a0a0f]">
@@ -63,6 +69,13 @@ export default function AdminSidebar() {
           <ExternalLink size={13} />
           View Portfolio
         </a>
+        <button
+          onClick={handleLogout}
+          className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-xs text-slate-500 hover:text-red-400 transition-colors"
+        >
+          <LogOut size={13} />
+          Logout
+        </button>
       </div>
     </aside>
   )

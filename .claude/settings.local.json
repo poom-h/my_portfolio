@@ -18,7 +18,10 @@
       "Bash(xxd \"D:/CODE/myportfolio/public/avatar.jpg\")",
       "WebFetch(domain:console.groq.com)",
       "Bash(\"D:/CODE/myportfolio/supabase/schema.sql\":*)",
-      "Bash(curl -s -X POST http://localhost:3000/api/track -H \"Content-Type: application/json\" -d '{\"\"path\"\":\"\"/\"\",\"\"referrer\"\":null,\"\"session_id\"\":\"\"test-session-abc\"\",\"\"device\"\":\"\"desktop\"\"}')"
+      "Bash(curl -s -X POST http://localhost:3000/api/track -H \"Content-Type: application/json\" -d '{\"\"path\"\":\"\"/\"\",\"\"referrer\"\":null,\"\"session_id\"\":\"\"test-session-abc\"\",\"\"device\"\":\"\"desktop\"\"}')",
+      "Bash(npm list:*)",
+      "Bash(npm run:*)",
+      "Bash(lsof -t -i:3000)"
     ]
   }
 }

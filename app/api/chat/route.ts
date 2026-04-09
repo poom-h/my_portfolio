@@ -1,6 +1,8 @@
 import Groq from 'groq-sdk'
 import { createAdminClient } from '@/lib/supabase/admin'
 
+export const maxDuration = 30
+
 const client = new Groq({ apiKey: process.env.GROQ_API_KEY })
 
 async function buildSystemPrompt(): Promise<string> {
